@@ -31,11 +31,16 @@ function! vim_tmux_events#focus_gained()
         return
     endif
     if <SID>cursor_in_cmd_line()
-        augroup focus_gained_checktime
-            au!
-            " perform checktime ASAP when outside cmd line
-            au * * call <SID>delayed_checktime()
-        augroup END
+        " " origin
+        " "
+        " augroup focus_gained_checktime
+        "     au!
+        "     " perform checktime ASAP when outside cmd line
+        "     au * * call <SID>delayed_checktime()
+        " augroup END
+
+        " do nothing
+        return
     else
         silent checktime
     endif
